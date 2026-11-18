@@ -20,7 +20,7 @@
 | `task-001` | Создать структуру координации (COORDINATION.md, tasks/, docs/agent-protocol.md, worktree) | `agent-local` | COORDINATION.md, tasks/*.md, docs/agent-protocol.md | **завершено** | — |
 | `task-002` | HeyGen: отladiть генерацию видео на сервере 178.172.137.203 (nginx + аудио URL + pipeline --video-engine heygen) | `agent-server` | pipeline.py, heygen_client.py, .env | отменено | — | |
 | `task-003` | Git-репозиторий: настройка приёма пушей, защита main, merge-задачи | `agent-git` | — | ожидает | agent-local (task-001) |
-| `task-004` | F5-TTS: клонирование голоса на CPU (русский) | `agent-server` | — | в работе | — |
+| `task-004` | F5-TTS: клонирование голоса на CPU (русский) | `agent-server` | pipeline.py, heygen_client.py, .env, ckpts/ | в работе | модель Misha24-10.F5-TTS_RUSSIAN загружена via HF-Mirror (1.3 GB), референс-аудио и текст транскрипции ожидаются от agent-local |
 
 ## Правила работы
 1. Каждый агент работает в своём Git Worktree, свою ветку.
