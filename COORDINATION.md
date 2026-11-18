@@ -17,7 +17,7 @@
 
 | ID | Задача | Ответственный | Файлы | Статус | Ждёт от |
 |----|--------|---------------|-------|--------|---------|
-| `task-001` | Создать структуру координации (COORDINATION.md, tasks/, docs/agent-protocol.md, worktree) | `agent-local` | COORDINATION.md, tasks/*.md, docs/agent-protocol.md | **в работе** | — |
+| `task-001` | Создать структуру координации (COORDINATION.md, tasks/, docs/agent-protocol.md, worktree) | `agent-local` | COORDINATION.md, tasks/*.md, docs/agent-protocol.md | **слито** | — |
 | `task-002` | HeyGen: отладить генерацию видео на сервере 178.172.137.203 (nginx + аудио URL + pipeline --video-engine heygen) | `agent-server` | pipeline.py, heygen_client.py, .env | заблокировано | agent-local (task-001) |
 | `task-003` | Git-репозиторий: настройка приёма пушей, защита main, merge-задачи | `agent-git` | — | ожидает | agent-local (task-001) |
 
@@ -30,9 +30,14 @@
 6. Никогда не коммитить напрямую в `main` (кроме `agent-git` после ревью).
 7. `.env` с реальными ключами НЕ коммитится (в .gitignore).
 
-## Обсуждение
+## Итоги task-001 (завершено 18.11.2026)
+Создана инфраструктура координации трёх агентов:
+- `COORDINATION.md` — доска задач в корне репозитория
+- `docs/agent-protocol.md` — протокол взаимодействия агентов
+- `tasks/task-001/002/003.md` — карточки задач с границами и критериями приёмки
+- Git worktree для каждого агента: `agent/local`, `agent/server`, `agent/git` (ветки запушены в origin)
 
-### Блокер task-002 (agent-server)
-- agent-server работал в отдельном git-репозитории `/root/factory`, не в клоне `origin`. Ему отправлен корректирующий промпт.
-- До исправления и пуша коммитов в `origin/agent/server` мержить нечего.
-- Статус task-002 остаётся `заблокировано` до уточнения со стороны agent-server.
+## Обсуждение
+- 18.11.2026: task-001 завершена. `agent-server` может приступать к task-002, `agent-git` — к task-003.
+- Обнаружено рассогласование: серверный агент работал в отдельном репозитории (`/root/factory` на 178.172.137.203), ему отправлен корректирующий промпт — переключиться на ветку `agent/server` и обновлять `COORDINATION.md` через основной репозиторий.
+- 18.11.2026: `agent-git` провёл ревью PR #1 (agent/local → main), одобрил и смержил в `main`. task-001 → `слито`. Блокер task-002 (серверный агент работал не в клоне origin) оставлен в разделе до уточнения со стороны agent-server.
