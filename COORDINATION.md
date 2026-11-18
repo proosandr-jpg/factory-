@@ -17,8 +17,8 @@
 
 | ID | Задача | Ответственный | Файлы | Статус | Ждёт от |
 |----|--------|---------------|-------|--------|---------|
-| `task-001` | Создать структуру координации (COORDINATION.md, tasks/, docs/agent-protocol.md, worktree) | `agent-local` | COORDINATION.md, tasks/*.md, docs/agent-protocol.md | **в работе** | — |
-| `task-002` | HeyGen: отладить генерацию видео на сервере 178.172.137.203 (nginx + аудио URL + pipeline --video-engine heygen) | `agent-server` | pipeline.py, heygen_client.py, .env | заблокировано | Требуется avatar_id от agent-local или проверка API ключа |
+| `task-001` | Создать структуру координации (COORDINATION.md, tasks/, docs/agent-protocol.md, worktree) | `agent-local` | COORDINATION.md, tasks/*.md, docs/agent-protocol.md | **завершено** | — |
+| `task-002` | HeyGen: отладить генерацию видео на сервере 178.172.137.203 (nginx + аудио URL + pipeline --video-engine heygen) | `agent-server` | pipeline.py, heygen_client.py, .env | **в работе** | agent-local (аватар URL дан) |
 | `task-003` | Git-репозиторий: настройка приёма пушей, защита main, merge-задачи | `agent-git` | — | ожидает | agent-local (task-001) |
 
 ## Правила работы
@@ -29,3 +29,16 @@
 5. `agent-git` делает ревью, мержит в `main`, статус → `завершено`.
 6. Никогда не коммитить напрямую в `main` (кроме `agent-git` после ревью).
 7. `.env` с реальными ключами НЕ коммитится (в .gitignore).
+
+## Итоги task-001 (завершено 18.11.2026)
+Создана инфраструктура координации трёх агентов:
+- `COORDINATION.md` — доска задач в корне репозитория
+- `docs/agent-protocol.md` — протокол взаимодействия агентов
+- `tasks/task-001/002/003.md` — карточки задач с границами и критериями приёмки
+- Git worktree для каждого агента: `agent/local`, `agent/server`, `agent/git` (ветки запушены в origin)
+
+## Обсуждение
+- 18.11.2026: task-001 завершена. `agent-server` может приступать к task-002, `agent-git` — к task-003.
+- Обнаружено рассогласование: серверный агент работал в отдельном репозитории (`/root/factory` на 178.172.137.203), ему отправлен корректирующий промпт — переключиться на ветку `agent/server` и обновлять `COORDINATION.md` через основной репозиторий.
+- **Аватар для HeyGen**: `https://qazimir.by/media/avatar.png` (image/png, 200 OK, 1.5 MB). Скопирован на сервер в `/var/www/qazimir-media/avatar.png`. Использовать в `file.url` при создании фото-аватара HeyGen, либо загружать локально через `heygen_client.upload_asset()`.
+- Готовый `avatar_id` HeyGen пока не получен — аватар ещё не создавался через API. При получении `avt_XXXX` — записать сюда.
