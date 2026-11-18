@@ -1,0 +1,30 @@
+# Секреты
+.env
+.env.*
+!.env.example
+
+# Видео/аудио и артефакты прогонов
+output/
+*.mp4
+*.mp3
+*.wav
+
+# Крупные модели (не храним в Git — скачиваются при установке)
+assets/models/f5-russian/*.safetensors
+assets/voice/piper/*.onnx
+assets/voice/piper/*.onnx.json
+
+# Личные материалы (фото, записи голоса пациента/врача)
+assets/private/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# ОС и редакторы
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
