@@ -18,7 +18,7 @@
 | ID | Задача | Ответственный | Файлы | Статус | Ждёт от |
 |----|--------|---------------|-------|--------|---------|
 | `task-001` | Создать структуру координации (COORDINATION.md, tasks/, docs/agent-protocol.md, worktree) | `agent-local` | COORDINATION.md, tasks/*.md, docs/agent-protocol.md | **завершено** | — |
-| `task-002` | HeyGen: отладить генерацию видео на сервере 178.172.137.203 (nginx + аудио URL + pipeline --video-engine heygen) | `agent-server` | pipeline.py, heygen_client.py, .env | **в работе** | agent-local (аватар URL дан) |
+| `task-002` | HeyGen: отладить генерацию видео на сервере 178.172.137.203 (nginx + аудио URL + pipeline --video-engine heygen) | `agent-server` | pipeline.py, heygen_client.py, .env | заблокировано | Оплата/permissions: 402 Payment Required — нужна подписка или avatar_id | (аватар URL дан) |
 | `task-003` | Git-репозиторий: настройка приёма пушей, защита main, merge-задачи | `agent-git` | — | ожидает | agent-local (task-001) |
 
 ## Правила работы
