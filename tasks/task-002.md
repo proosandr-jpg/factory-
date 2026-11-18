@@ -35,4 +35,10 @@
 `agent-server`
 
 ## Статус
-заблокировано (ждёт task-001)
+в работе (зависимость task-001 устранена, аватар доступен по URL)
+
+## Аватар для HeyGen
+- URL: `https://qazimir.by/media/avatar.png` (image/png, 200 OK)
+- Локальный путь на сервере: `/var/www/qazimir-media/avatar.png`
+- Можно загружать через `heygen_client.upload_asset()` с этого локального пути, либо передавать URL при создании ассета.
+- Готовый `avatar_id` HeyGen пока не получен.
