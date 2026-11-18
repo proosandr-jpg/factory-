@@ -18,8 +18,9 @@
 | ID | Задача | Ответственный | Файлы | Статус | Ждёт от |
 |----|--------|---------------|-------|--------|---------|
 | `task-001` | Создать структуру координации (COORDINATION.md, tasks/, docs/agent-protocol.md, worktree) | `agent-local` | COORDINATION.md, tasks/*.md, docs/agent-protocol.md | **завершено** | — |
-| `task-002` | HeyGen: отладить генерацию видео на сервере 178.172.137.203 (nginx + аудио URL + pipeline --video-engine heygen) | `agent-server` | pipeline.py, heygen_client.py, .env | заблокировано | Оплата/permissions: 402 Payment Required — нужна подписка или avatar_id | (аватар URL дан) |
+| `task-002` | HeyGen: отladiть генерацию видео на сервере 178.172.137.203 (nginx + аудио URL + pipeline --video-engine heygen) | `agent-server` | pipeline.py, heygen_client.py, .env | отменено | — | |
 | `task-003` | Git-репозиторий: настройка приёма пушей, защита main, merge-задачи | `agent-git` | — | ожидает | agent-local (task-001) |
+| `task-004` | F5-TTS: клонирование голоса на CPU (русский) | `agent-server` | — | в работе | — |
 
 ## Правила работы
 1. Каждый агент работает в своём Git Worktree, свою ветку.
@@ -42,3 +43,10 @@
 - Обнаружено рассогласование: серверный агент работал в отдельном репозитории (`/root/factory` на 178.172.137.203), ему отправлен корректирующий промпт — переключиться на ветку `agent/server` и обновлять `COORDINATION.md` через основной репозиторий.
 - **Аватар для HeyGen**: `https://qazimir.by/media/avatar.png` (image/png, 200 OK, 1.5 MB). Скопирован на сервер в `/var/www/qazimir-media/avatar.png`. Использовать в `file.url` при создании фото-аватара HeyGen, либо загружать локально через `heygen_client.upload_asset()`.
 - Готовый `avatar_id` HeyGen пока не получен — аватар ещё не создавался через API. При получении `avt_XXXX` — записать сюда.
+## Обсуждение (продолжение)
+- 18.11.2026: HeyGen отменен из-за 402 Payment Required. Выбран F5-TTS для клонирования голоса на CPU.
+- Поиск русской модели: repo Misha24-10/F5-TTS_Russian не найден на HF. Требуется уточнить точный идентификатор репозитория или использовать альтернативный источник.
+- Ключевые файлы: онтология модели ожидается в ckpts/ или models/ при клонировании F5TTS-CPU_ONLY-WebUI.
+- Референс-аудио и текст транскрипции ожидаются от agent-local (Windows).
+- Настройка task-004 переведена в "в работу" после уточнения деталей.
+
