@@ -50,3 +50,7 @@
 - Референс-аудио и текст транскрипции ожидаются от agent-local (Windows).
 - Настройка task-004 переведена в "в работу" после уточнения деталей.
 
+Task-004 waiting for transcription
+| `task-004` | F5-TTS: клонирование голоса на CPU (русский) | `agent-server` | pipeline.py, heygen_client.py, .env, ckpts/ | в работе | модель загружена (F5TTS_v1_Base, 1.3GB, ckpts/), референс-аудио ref_10s.wav (9.98 сек), **транскрипция ожидается от agent-local** |
+- Настройка task-004 переведена в "в работу" после уточнения деталей.
+>> Task-004: F5-TTS generation waiting for dependency resolution (datasets, ema_pytorch, wandb). Audio generation paused until dependencies are installed.
