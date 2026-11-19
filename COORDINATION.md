@@ -20,7 +20,7 @@
 | `task-001` | Создать структуру координации (COORDINATION.md, tasks/, docs/agent-protocol.md, worktree) | `agent-local` | COORDINATION.md, tasks/*.md, docs/agent-protocol.md | **завершено** | — |
 | `task-002` | HeyGen: отladiть генерацию видео на сервере 178.172.137.203 (nginx + аудио URL + pipeline --video-engine heygen) | `agent-server` | pipeline.py, heygen_client.py, .env | отменено | — | |
 | `task-003` | Git-репозиторий: настройка приёма пушей, защита main, merge-задачи | `agent-git` | — | ожидает | agent-local (task-001) |
-| `task-004` | F5-TTS: клонирование голоса на CPU (русский) | `agent-server` | pipeline.py, heygen_client.py, .env, ckpts/ | в работе | модель Misha24-10.F5-TTS_RUSSIAN загружена via HF-Mirror (1.3 GB), референс-аудио и текст транскрипции ожидаются от agent-local |
+| `task-004` | F5-TTS: клонирование голоса на CPU (русский) | `agent-server` | pipeline.py, heygen_client.py, .env, ckpts/ | отменено | — |
 
 ## Правила работы
 1. Каждый агент работает в своём Git Worktree, свою ветку.
@@ -51,7 +51,7 @@
 - Настройка task-004 переведена в "в работу" после уточнения деталей.
 
 Task-004 waiting for transcription
-| `task-004` | F5-TTS: клонирование голоса на CPU (русский) | `agent-server` | pipeline.py, heygen_client.py, .env, ckpts/ | в работе | модель загружена (F5TTS_v1_Base, 1.3GB, ckpts/), референс-аудио ref_10s.wav (9.98 сек), **транскрипция ожидается от agent-local** |
+| `task-004` | F5-TTS: клонирование голоса на CPU (русский) | `agent-server` | pipeline.py, heygen_client.py, .env, ckpts/ | отменено | — |
 - Настройка task-004 переведена в "в работу" после уточнения деталей.
 >> Task-004: F5-TTS generation waiting for dependency resolution (datasets, ema_pytorch, wandb). Audio generation paused until dependencies are installed.
 >> Зависимость: f5-tts остановлен из-за конфликта numpy scipy. numpy<=1.26.4 конфликтует с системным numpy 2.5.5. Транскрипция и генерация приостановлены.
